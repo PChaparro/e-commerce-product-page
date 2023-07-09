@@ -23,7 +23,7 @@ export const Navbar = () => {
             <img src="/images/logo.svg" alt="Sneakers logo" width={145} />
             {/* Blackish background */}
             <div
-              className={`fixed h-screen bg-black/75 top-0 left-0 w-full md:block md:h-full md:bg-transparent md:static ${
+              className={`fixed h-screen bg-black/75 top-0 left-0 w-full md:block md:h-full md:bg-transparent md:static z-10 ${
                 isMenuOpen ? "block" : "hidden"
               }`}
               onClick={toggleMenuVisibility}
