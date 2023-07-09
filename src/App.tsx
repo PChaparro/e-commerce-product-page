@@ -3,6 +3,7 @@ import { Carousel } from "./components/Carousel/Carousel";
 import { Price } from "./components/Product/Price";
 import { Container } from "./components/layout/Container";
 import { cartContext } from "./context/CartContext";
+import { Button } from "./components/Button";
 
 export const App = () => {
   const { addItem } = useContext(cartContext);
@@ -87,18 +88,12 @@ export const App = () => {
                   />
                 </button>
               </div>
-              <button
-                className="flex items-center justify-center w-full gap-4 p-4 font-semibold text-white rounded-lg shadow-xl bg-orange-normal shadow-orange-pale"
+              <Button
+                label="Add to cart"
                 onClick={handleAddToCart}
-              >
-                <img
-                  src="/icons/icon-cart-light.svg"
-                  alt="Cart icon"
-                  width={22}
-                  height={20}
-                />
-                Add to cart
-              </button>
+                iconAlt="Cart icon"
+                iconPath="/icons/icon-cart-light.svg"
+              />
             </div>
           </div>
         </section>
