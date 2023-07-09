@@ -10,7 +10,7 @@ export const Navbar = () => {
   return (
     <nav className="h-24">
       <Container>
-        <div className="flex items-center h-full justify-between md:border-b">
+        <div className="flex items-center h-full justify-between md:border-b px-4">
           {/* Left side */}
           <div className="flex items-center gap-6 md:gap-16 md:h-full">
             <img
