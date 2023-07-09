@@ -76,6 +76,7 @@ export const App = () => {
                   type="number"
                   min={0}
                   className="w-full p-4 font-bold text-center rounded-lg shadow-sm bg-blue-light-grayish"
+                  aria-label="Product quantity"
                 />
                 <button
                   className="absolute grid h-full transform -translate-y-1/2 top-1/2 right-1 aspect-square place-content-center"
