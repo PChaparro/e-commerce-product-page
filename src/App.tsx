@@ -34,6 +34,7 @@ export const App = () => {
     };
 
     addItem(item);
+    setQuantity(0);
   };
 
   return (
