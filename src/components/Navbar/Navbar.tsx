@@ -12,6 +12,9 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenuVisibility = () => setIsMenuOpen((prev) => !prev);
 
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const toggleCartVisibility = () => setIsCartOpen((prev) => !prev);
+
   return (
     <nav className="h-24">
       <Container>
@@ -60,7 +63,10 @@ export const Navbar = () => {
           </div>
           {/* Right side */}
           <div className="flex items-center gap-6">
-            <div className="relative">
+            <div
+              className="relative cursor-pointer"
+              onClick={toggleCartVisibility}
+            >
               <img src="/icons/icon-cart.svg" alt="Cart icon" width={24} />
               {cartItemsCount > 0 && (
                 <span className="absolute grid h-full text-xs font-bold text-white rounded-full place-items-center -top-3 -right-3 bg-orange-normal aspect-square">
@@ -76,7 +82,7 @@ export const Navbar = () => {
             />
           </div>
           {/* Cart floating menu*/}
-          <CartModal />
+          {isCartOpen && <CartModal />}
         </div>
       </Container>
     </nav>
