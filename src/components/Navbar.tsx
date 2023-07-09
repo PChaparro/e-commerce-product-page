@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Container } from "./layout/Container";
+import { cartContext } from "../context/CartContext";
 
 const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
 
 export const Navbar = () => {
+  const { items } = useContext(cartContext);
+  const cartItemsCount = items.reduce((acc, item) => acc + item.quantity, 0);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenuVisibility = () => setIsMenuOpen((prev) => !prev);
 
@@ -55,7 +59,12 @@ export const Navbar = () => {
           </div>
           {/* Right side */}
           <div className="flex items-center gap-6">
-            <img src="/icons/icon-cart.svg" alt="Cart icon" width={24} />
+            <div className="relative">
+              <img src="/icons/icon-cart.svg" alt="Cart icon" width={24} />
+              <span className="absolute grid h-full text-xs font-bold text-white rounded-full place-items-center -top-3 -right-3 bg-orange-normal aspect-square">
+                {cartItemsCount > 9 ? "9+" : cartItemsCount}
+              </span>
+            </div>
             <img
               src="/images/image-avatar.png"
               className="transition-colors border-2 border-transparent rounded-full hover:border-orange-normal aspect-square md:w-12"

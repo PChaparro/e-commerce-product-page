@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Carousel } from "./components/Carousel/Carousel";
 import { Price } from "./components/Product/Price";
 import { Container } from "./components/layout/Container";
+import { cartContext } from "./context/CartContext";
 
 export const App = () => {
+  const { addItem } = useContext(cartContext);
   const [quantity, setQuantity] = useState(0);
 
   const handleIncreaseQuantity = () => setQuantity(quantity + 1);
@@ -18,6 +20,19 @@ export const App = () => {
     const value = event.target.value;
     const parsedValue = parseInt(value);
     if (parsedValue >= 0) setQuantity(parsedValue);
+  };
+
+  const handleAddToCart = () => {
+    if (quantity === 0) return;
+
+    const item = {
+      id: 1,
+      name: "Fall Limited Edition Sneakers",
+      price: 125,
+      quantity,
+    };
+
+    addItem(item);
   };
 
   return (
@@ -72,7 +87,10 @@ export const App = () => {
                   />
                 </button>
               </div>
-              <button className="flex items-center justify-center w-full gap-4 p-4 font-semibold text-white rounded-lg shadow-xl bg-orange-normal shadow-orange-pale">
+              <button
+                className="flex items-center justify-center w-full gap-4 p-4 font-semibold text-white rounded-lg shadow-xl bg-orange-normal shadow-orange-pale"
+                onClick={handleAddToCart}
+              >
                 <img
                   src="/icons/icon-cart-light.svg"
                   alt="Cart icon"
