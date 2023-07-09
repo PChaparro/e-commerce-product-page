@@ -4,8 +4,8 @@ interface SlideButtonProps {
 }
 
 const directionPositionStyles = {
-  left: "left-5",
-  right: "right-5",
+  left: "left-5 animate-fade-right",
+  right: "right-5 animate-fade-left",
 };
 
 const directionIconsPath = {

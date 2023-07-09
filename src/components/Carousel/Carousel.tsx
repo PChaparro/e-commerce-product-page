@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { SlideButton } from "./SlideButton";
+import { Thumbnails } from "./Thumbnails";
+
+const images = [
+  "/images/image-product-1.webp",
+  "/images/image-product-2.webp",
+  "/images/image-product-3.webp",
+  "/images/image-product-4.webp",
+];
 
 export const Carousel = () => {
   const [activeImage, setActiveImage] = useState(0);
@@ -19,10 +27,10 @@ export const Carousel = () => {
       {/* Current active image */}
       <div className="relative">
         <img
-          src={`/images/image-product-${activeImage + 1}.webp`}
-          className="aspect-square w-full animate-fade"
+          src={images[activeImage]}
+          className="aspect-square w-full md:rounded-2xl"
           key={`product-image-${activeImage}`}
-          alt="Product 1"
+          alt="Fall Limited Edition Sneakers"
           width={500}
           height={500}
         />
@@ -30,6 +38,11 @@ export const Carousel = () => {
         <SlideButton direction="right" clickCallback={selectNextImage} />
       </div>
       {/* Thumbnails */}
+      <Thumbnails
+        images={images}
+        activeImage={activeImage}
+        clickCallback={setActiveImage}
+      />
     </div>
   );
 };
