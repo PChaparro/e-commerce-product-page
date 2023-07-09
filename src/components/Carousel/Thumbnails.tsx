@@ -10,7 +10,7 @@ export const Thumbnails = ({
   clickCallback,
 }: ThumbnailsProps) => {
   return (
-    <ul className="hidden md:flex justify-between gap-8 my-8 animate-fade-up">
+    <ul className="justify-between hidden gap-8 my-8 md:flex animate-fade-up">
       {images.map((image, index) => (
         <li
           key={`thumbnail-${index}`}

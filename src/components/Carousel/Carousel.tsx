@@ -28,7 +28,7 @@ export const Carousel = () => {
       <div className="relative">
         <img
           src={images[activeImage]}
-          className="aspect-square w-full md:rounded-2xl"
+          className="w-full aspect-square md:rounded-2xl"
           key={`product-image-${activeImage}`}
           alt="Fall Limited Edition Sneakers"
           width={500}

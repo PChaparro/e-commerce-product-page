@@ -10,7 +10,7 @@ export const Navbar = () => {
   return (
     <nav className="h-24">
       <Container>
-        <div className="flex items-center h-full justify-between md:border-b px-4">
+        <div className="flex items-center justify-between h-full px-4 md:border-b">
           {/* Left side */}
           <div className="flex items-center gap-6 md:gap-16 md:h-full">
             <img
@@ -29,7 +29,7 @@ export const Navbar = () => {
               onClick={toggleMenuVisibility}
             >
               {/* White background */}
-              <div className="w-3/4 bg-white h-full p-6 md:p-0">
+              <div className="w-3/4 h-full p-6 bg-white md:p-0">
                 <img
                   onClick={(e) => {
                     e.stopPropagation();
@@ -58,7 +58,7 @@ export const Navbar = () => {
             <img src="/icons/icon-cart.svg" alt="Cart icon" width={24} />
             <img
               src="/images/image-avatar.png"
-              className="border-2 border-transparent hover:border-orange-normal aspect-square rounded-full transition-colors md:w-12"
+              className="transition-colors border-2 border-transparent rounded-full hover:border-orange-normal aspect-square md:w-12"
               alt="User avatar"
               width={36}
             />
