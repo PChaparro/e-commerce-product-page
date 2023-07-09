@@ -1,3 +1,9 @@
+import { Carousel } from "./components/Carousel/Carousel";
+
 export const App = () => {
-  return <div>App</div>;
+  return (
+    <main className="grid">
+      <Carousel />
+    </main>
+  );
 };
