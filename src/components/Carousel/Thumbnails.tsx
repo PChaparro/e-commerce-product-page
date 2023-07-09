@@ -14,8 +14,10 @@ export const Thumbnails = ({
       {images.map((image, index) => (
         <li
           key={`thumbnail-${index}`}
-          className={`cursor-pointer rounded-xl border-2 border-transparent overflow-hidden transition-colors ${
-            activeImage === index ? "border-orange-normal" : ""
+          className={`cursor-pointer rounded-xl border-2 overflow-hidden transition-colors ${
+            activeImage === index
+              ? "border-orange-normal"
+              : "border-transparent"
           }`}
         >
           <img
