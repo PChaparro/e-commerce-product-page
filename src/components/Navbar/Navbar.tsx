@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import { Container } from "./layout/Container";
-import { cartContext } from "../context/CartContext";
+import { Container } from "../layout/Container";
+import { cartContext } from "../../context/CartContext";
+import { CartModal } from "./CartModal";
 
 const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
 
@@ -14,7 +15,7 @@ export const Navbar = () => {
   return (
     <nav className="h-24">
       <Container>
-        <div className="flex items-center justify-between h-full px-4 md:border-b">
+        <div className="relative flex items-center justify-between h-full px-4 md:border-b">
           {/* Left side */}
           <div className="flex items-center gap-6 md:gap-16 md:h-full">
             <img
@@ -27,7 +28,7 @@ export const Navbar = () => {
             <img src="/images/logo.svg" alt="Sneakers logo" width={145} />
             {/* Blackish background */}
             <div
-              className={`fixed h-screen bg-black/75 top-0 left-0 w-full md:block md:h-full md:bg-transparent md:static z-10 ${
+              className={`fixed h-screen bg-black/75 top-0 left-0 w-full md:block md:h-full md:bg-transparent md:static z-20 ${
                 isMenuOpen ? "block" : "hidden"
               }`}
               onClick={toggleMenuVisibility}
@@ -74,6 +75,8 @@ export const Navbar = () => {
               width={36}
             />
           </div>
+          {/* Cart floating menu*/}
+          <CartModal />
         </div>
       </Container>
     </nav>
