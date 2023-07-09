@@ -61,9 +61,11 @@ export const Navbar = () => {
           <div className="flex items-center gap-6">
             <div className="relative">
               <img src="/icons/icon-cart.svg" alt="Cart icon" width={24} />
-              <span className="absolute grid h-full text-xs font-bold text-white rounded-full place-items-center -top-3 -right-3 bg-orange-normal aspect-square">
-                {cartItemsCount > 9 ? "9+" : cartItemsCount}
-              </span>
+              {cartItemsCount > 0 && (
+                <span className="absolute grid h-full text-xs font-bold text-white rounded-full place-items-center -top-3 -right-3 bg-orange-normal aspect-square">
+                  {cartItemsCount > 9 ? "9+" : cartItemsCount}
+                </span>
+              )}
             </div>
             <img
               src="/images/image-avatar.png"
