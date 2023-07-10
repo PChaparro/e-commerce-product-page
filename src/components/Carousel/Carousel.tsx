@@ -1,30 +1,20 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
+import { carouselContext } from "../../context/CarouselContext";
 import { SlideButton } from "./SlideButton";
 import { Thumbnails } from "./Thumbnails";
-
-const images = [
-  "/images/image-product-1.webp",
-  "/images/image-product-2.webp",
-  "/images/image-product-3.webp",
-  "/images/image-product-4.webp",
-];
 
 interface CarouselProps {
   mainImageCallback?: () => void;
 }
 
 export const Carousel = ({ mainImageCallback }: CarouselProps) => {
-  const [activeImage, setActiveImage] = useState(0);
-
-  const selectNextImage = () => {
-    const next = activeImage === 3 ? 0 : activeImage + 1;
-    setActiveImage(next);
-  };
-
-  const selectPreviousImage = () => {
-    const previous = activeImage === 0 ? 3 : activeImage - 1;
-    setActiveImage(previous);
-  };
+  const {
+    images,
+    activeImage,
+    selectPreviousImage,
+    selectNextImage,
+    setActiveImage,
+  } = useContext(carouselContext);
 
   return (
     <div>
