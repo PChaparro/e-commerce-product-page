@@ -9,7 +9,7 @@ export const ProductImagesModal = ({
 }: ProductImagesModalProps) => {
   return (
     <div
-      className="fixed top-0 left-0 z-20 grid w-full h-screen bg-black/75 place-content-center animate-fade"
+      className="fixed top-0 left-0 z-20 hidden w-full h-screen md:grid bg-black/75 place-content-center animate-fade"
       onClick={toggleModalVisibility}
     >
       <div className="max-w-xl">
