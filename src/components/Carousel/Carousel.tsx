@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { carouselContext } from "../../context/CarouselContext";
 import { SlideButton } from "./SlideButton";
 import { Thumbnails } from "./Thumbnails";
