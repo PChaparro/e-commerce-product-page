@@ -15,7 +15,10 @@ export const App = () => {
       <main>
         <Container>
           <section className="grid md:grid-cols-2 md:px-8 md:py-16 md:gap-20">
-            <Carousel mainImageCallback={toggleModalVisibility} />
+            <Carousel
+              mainImageCallback={toggleModalVisibility}
+              alwaysShowArrows={false}
+            />
             {/* Sneakers information */}
             <div className="flex flex-col justify-center gap-4 p-6 md:gap-8 animate-fade-up md:animate-fade-left">
               <h2 className="text-sm font-bold tracking-widest uppercase text-orange-normal">

@@ -21,7 +21,7 @@ export const ProductImagesModal = ({
             height={24}
           />
         </button>
-        <Carousel />
+        <Carousel alwaysShowArrows={true} />
       </div>
     </div>
   );

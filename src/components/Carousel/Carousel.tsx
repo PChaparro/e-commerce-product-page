@@ -4,10 +4,14 @@ import { SlideButton } from "./SlideButton";
 import { Thumbnails } from "./Thumbnails";
 
 interface CarouselProps {
+  alwaysShowArrows: boolean;
   mainImageCallback?: () => void;
 }
 
-export const Carousel = ({ mainImageCallback }: CarouselProps) => {
+export const Carousel = ({
+  mainImageCallback,
+  alwaysShowArrows,
+}: CarouselProps) => {
   const {
     images,
     activeImage,
@@ -37,8 +41,16 @@ export const Carousel = ({ mainImageCallback }: CarouselProps) => {
             height={500}
           />
         </button>
-        <SlideButton direction="left" clickCallback={selectPreviousImage} />
-        <SlideButton direction="right" clickCallback={selectNextImage} />
+        <SlideButton
+          direction="left"
+          clickCallback={selectPreviousImage}
+          alwaysShow={alwaysShowArrows}
+        />
+        <SlideButton
+          direction="right"
+          clickCallback={selectNextImage}
+          alwaysShow={alwaysShowArrows}
+        />
       </div>
       {/* Thumbnails */}
       <Thumbnails
