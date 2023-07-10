@@ -9,7 +9,11 @@ const images = [
   "/images/image-product-4.webp",
 ];
 
-export const Carousel = () => {
+interface CarouselProps {
+  mainImageCallback?: () => void;
+}
+
+export const Carousel = ({ mainImageCallback }: CarouselProps) => {
   const [activeImage, setActiveImage] = useState(0);
 
   const selectNextImage = () => {
@@ -26,14 +30,23 @@ export const Carousel = () => {
     <div>
       {/* Current active image */}
       <div className="relative">
-        <img
-          src={images[activeImage]}
-          className="w-full aspect-square md:rounded-2xl"
-          key={`product-image-${activeImage}`}
-          alt="Fall Limited Edition Sneakers"
-          width={500}
-          height={500}
-        />
+        <button
+          className="block w-full"
+          onClick={(e) => {
+            if (!mainImageCallback) return;
+            e.stopPropagation();
+            mainImageCallback();
+          }}
+        >
+          <img
+            src={images[activeImage]}
+            className="w-full aspect-square md:rounded-2xl"
+            key={`product-image-${activeImage}`}
+            alt="Fall Limited Edition Sneakers"
+            width={500}
+            height={500}
+          />
+        </button>
         <SlideButton direction="left" clickCallback={selectPreviousImage} />
         <SlideButton direction="right" clickCallback={selectNextImage} />
       </div>

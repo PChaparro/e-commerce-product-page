@@ -2,13 +2,18 @@ import { Carousel } from "./components/Carousel/Carousel";
 import { Price } from "./components/Product/Price";
 import { Container } from "./components/layout/Container";
 import { AddToCartInput } from "./components/Product/AddToCartInput";
+import { useState } from "react";
+import { ProductImagesModal } from "./components/Product/ProductImagesModal";
 
 export const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModalVisibility = () => setIsModalOpen(!isModalOpen);
+
   return (
     <main>
       <Container>
         <section className="grid md:grid-cols-2 md:px-8 md:py-16 md:gap-20">
-          <Carousel />
+          <Carousel mainImageCallback={toggleModalVisibility} />
           {/* Sneakers information */}
           <div className="flex flex-col justify-center gap-4 p-6 md:gap-8 animate-fade-up md:animate-fade-left">
             <h2 className="text-sm font-bold tracking-widest uppercase text-orange-normal">
@@ -28,6 +33,9 @@ export const App = () => {
           </div>
         </section>
       </Container>
+      {isModalOpen && (
+        <ProductImagesModal toggleModalVisibility={toggleModalVisibility} />
+      )}
     </main>
   );
 };

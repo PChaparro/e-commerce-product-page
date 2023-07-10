@@ -28,7 +28,10 @@ export const Thumbnails = ({
             alt="Fall Limited Edition Sneakers"
             width={100}
             height={100}
-            onClick={() => clickCallback(index)}
+            onClick={(e) => {
+              e.stopPropagation();
+              clickCallback(index);
+            }}
           />
         </li>
       ))}
